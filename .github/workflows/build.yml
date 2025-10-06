@@ -41,11 +41,11 @@ jobs:
           distribution: 'temurin'
 
       - name: Build backend with Maven
-        working-directory: ./backend
+        working-directory: ./backend/wrapitup_planner
         run: mvn clean install
 
       - name: Build frontend
-        working-directory: ./frontend
+        working-directory: ./frontend/WrapItUp-Planner
         run: |
           npm install
           npm run build
