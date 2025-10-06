@@ -34,7 +34,7 @@ public class ClientWebTest {
     options.addArguments("--disable-dev-shm-usage");
     options.addArguments("--disable-gpu");
     options.addArguments("--remote-allow-origins=*");
-    options.addArguments("--user-data-dir=/tmp/chrome-user-data"); // directorio único
+    options.addArguments("--user-data-dir=/tmp/chrome-user-data-" + System.currentTimeMillis());
         this.driver = new ChromeDriver(options);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
