@@ -28,7 +28,14 @@ public class ClientWebTest {
 
     @BeforeEach
     void setup() {
-        this.driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless=new"); // o "--headless" para versiones más antiguas
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    options.addArguments("--disable-gpu");
+    options.addArguments("--remote-allow-origins=*");
+    options.addArguments("--user-data-dir=/tmp/chrome-user-data"); // directorio único
+        this.driver = new ChromeDriver(options);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
