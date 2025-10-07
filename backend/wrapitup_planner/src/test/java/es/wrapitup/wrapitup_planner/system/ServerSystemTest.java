@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("system")
 @SpringBootTest
-@Transactional
 public class ServerSystemTest {
 
     @Autowired
