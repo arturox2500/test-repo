@@ -89,7 +89,13 @@ jobs:
         working-directory: ./backend/wrapitup_planner
         run: mvn test -Dgroups="unit"
 
+        # Run integration tests backend
+      - name: Run backend integration tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="integration"
+
       
+
       # Run client-e2e tests frontend
       - name: Run angular tests
         working-directory: ./frontend/WrapItUp-Planner
