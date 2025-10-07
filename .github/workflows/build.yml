@@ -107,7 +107,7 @@ jobs:
       - name: Check test data before Angular tests
         run: |
           echo "⏳ Verifying test note exists..."
-          mysql -h 127.0.0.1 -u user -proot wrapitup -e "SELECT id, overview FROM ai_note WHERE id=1;"
+          mysql -h 127.0.0.1 -u root -proot wrapitup -e "SELECT id, overview FROM ai_note WHERE id=1;"
 
       - name: Check API before Angular tests
         run: |
