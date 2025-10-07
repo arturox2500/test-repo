@@ -84,9 +84,27 @@ jobs:
           sleep 15
           echo "✅ Angular app started on port 4200"
 
-        
+        # Run unit tests backend
+      - name: Run backend unit tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="unit"
 
-        # Run client-e2e tests frontend
+        # Run integration tests backend
+      - name: Run backend integration tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="integration"
+
+        # Run system tests backend
+      - name: Run backend system tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="system"
+
+        # Run client-e2e tests
+      - name: Run client-e2e tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="client-e2e"
+
+      # Run client-e2e tests frontend
       - name: Run angular tests
         working-directory: ./frontend/WrapItUp-Planner
         run: npm ci
