@@ -56,13 +56,19 @@ jobs:
         working-directory: ./backend/wrapitup_planner
         run: mvn clean install -DskipTests
       
-      # Start backend in background
       - name: Start Spring Boot backend
         working-directory: ./backend/wrapitup_planner
         run: |
           nohup mvn spring-boot:run > backend.log 2>&1 &
-          sleep 20
-          echo "✅ Backend started on port 8080"
+          echo "⏳ Waiting for backend to start on port 8080..."
+          for i in {1..30}; do
+            if nc -z localhost 8080; then
+              echo "✅ Backend is up on port 8080!"
+              break
+            fi
+            echo "🕒 Waiting... ($i/30)"
+            sleep 3
+          done
 
         # Build frontend
       - name: Build frontend
