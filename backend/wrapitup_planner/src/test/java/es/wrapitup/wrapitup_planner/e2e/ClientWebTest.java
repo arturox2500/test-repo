@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import es.wrapitup.wrapitup_planner.WrapitupPlannerApplication;
 
+@Tag("client-e2e")
 @SpringBootTest(classes = WrapitupPlannerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT) //change to random later
 public class ClientWebTest {
 

@@ -51,11 +51,26 @@ jobs:
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v2
 
+      # Build backend
+      - name: Build backend
+        working-directory: ./backend/wrapitup_planner
+        run: mvn clean install -DskipTests
+      
+      # Start backend in background
+      - name: Start Spring Boot backend
+        working-directory: ./backend/wrapitup_planner
+        run: |
+          nohup mvn spring-boot:run > backend.log 2>&1 &
+          sleep 20
+          echo "✅ Backend started on port 8080"
+
+        # Build frontend
       - name: Build frontend
         working-directory: ./frontend/WrapItUp-Planner
         run: |
           npm install
           npm run build
+        
       - name: Start Angular app
         working-directory: ./frontend/WrapItUp-Planner
         run: |
@@ -63,10 +78,27 @@ jobs:
           sleep 15
           echo "✅ Angular app started on port 4200"
 
-      - name: Build backend with Maven
+        # Run unit tests backend
+      - name: Run backend unit tests
         working-directory: ./backend/wrapitup_planner
-        run: mvn clean install
+        run: mvn test -Dgroups="unit"
 
-      - name: Run client tests
+        # Run integration tests backend
+      - name: Run backend integration tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="integration"
+
+        # Run system tests backend
+      - name: Run backend system tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="system"
+
+        # Run client-e2e tests
+      - name: Run client-e2e tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="client-e2e"
+
+        # Run client-e2e tests frontend
+      - name: Run angular tests
         working-directory: ./frontend/WrapItUp-Planner
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless
