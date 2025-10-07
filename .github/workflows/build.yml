@@ -68,5 +68,5 @@ jobs:
         run: mvn clean install
 
       - name: Run client tests
-        working-directory: ./frontend/wrapitup_planner
-        run: mvn clean install
+        working-directory: ./frontend/WrapItUp-Planner
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadless
