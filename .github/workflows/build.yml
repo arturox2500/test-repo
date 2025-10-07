@@ -74,7 +74,7 @@ jobs:
       - name: Build frontend
         working-directory: ./frontend/WrapItUp-Planner
         run: |
-          npm install
+          npm ci
           npm run build
         
       - name: Start Angular app
@@ -83,6 +83,12 @@ jobs:
           nohup npm start -- --host 0.0.0.0 --port 4200 > angular.log 2>&1 &
           sleep 15
           echo "✅ Angular app started on port 4200"
+
+        # Run client-e2e tests frontend
+      - name: Run tests
+        working-directory: ./frontend/WrapItUp-Planner
+        run: npm test -- --no-watch --browsers=ChromeHeadless
+
 
         # Run unit tests backend
       - name: Run backend unit tests
@@ -94,15 +100,17 @@ jobs:
         working-directory: ./backend/wrapitup_planner
         run: mvn test -Dgroups="integration"
 
+        # Run system tests backend
+      - name: Run backend system tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="system"
+
+        # Run client-e2e tests
+      - name: Run client-e2e tests
+        working-directory: ./backend/wrapitup_planner
+        run: mvn test -Dgroups="client-e2e"
+
       
-
-      # Run client-e2e tests frontend
-      - name: Run angular tests
-        working-directory: ./frontend/WrapItUp-Planner
-        run: npm ci
-
-      - name: Run tests
-        working-directory: ./frontend/WrapItUp-Planner
-        run: npm test -- --no-watch --browsers=ChromeHeadless
-
+        
+        
       
