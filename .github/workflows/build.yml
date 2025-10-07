@@ -84,8 +84,12 @@ jobs:
           sleep 15
           echo "✅ Angular app started on port 4200"
 
+        
 
         # Run client-e2e tests frontend
       - name: Run angular tests
         working-directory: ./frontend/WrapItUp-Planner
-        run: npm ci -- --no-watch --no-progress --browsers=ChromeHeadless
+        run: npm ci
+
+      - name: Run tests
+        run: npm test -- --no-watch --browsers=ChromeHeadless
