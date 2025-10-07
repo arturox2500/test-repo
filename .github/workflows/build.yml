@@ -66,3 +66,7 @@ jobs:
       - name: Build backend with Maven
         working-directory: ./backend/wrapitup_planner
         run: mvn clean install
+
+      - name: Run client tests
+        working-directory: ./frontend/wrapitup_planner
+        run: mvn clean install
