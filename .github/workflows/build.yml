@@ -83,6 +83,14 @@ jobs:
           nohup npm start -- --host 0.0.0.0 --port 4200 > angular.log 2>&1 &
           sleep 15
           echo "✅ Angular app started on port 4200"
+      # Run client-e2e tests frontend
+      - name: Run angular tests
+        working-directory: ./frontend/WrapItUp-Planner
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./frontend/WrapItUp-Planner
+        run: npm test -- --no-watch --browsers=ChromeHeadless
 
         # Run unit tests backend
       - name: Run backend unit tests
@@ -109,16 +117,5 @@ jobs:
           echo "⏳ Verifying test note exists..."
           mysql -h 127.0.0.1 -u root -proot wrapitup -e "SELECT id, overview FROM ai_note WHERE id=1;"
 
-      - name: Check API before Angular tests
-        run: |
-          echo "⏳ Testing /api/v1/notes/1 endpoint..."
-          curl -f http://localhost:8080/api/v1/notes/1
 
-      # Run client-e2e tests frontend
-      - name: Run angular tests
-        working-directory: ./frontend/WrapItUp-Planner
-        run: npm ci
-
-      - name: Run tests
-        working-directory: ./frontend/WrapItUp-Planner
-        run: npm test -- --no-watch --browsers=ChromeHeadless
+      
