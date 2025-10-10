@@ -152,7 +152,7 @@ jobs:
         # Run client-e2e tests frontend
       - name: Run tests
         working-directory: ./frontend/WrapItUp-Planner
-        run: npm test:all -- --no-watch --browsers=ChromeHeadless
+        run: npm run test:all -- --no-watch --browsers=ChromeHeadless
 
         # Run unit tests backend
       - name: Run backend unit tests
