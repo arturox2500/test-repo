@@ -12,7 +12,7 @@ on:
 jobs:
   # -------------------------------
   # CONTROL DE CALIDAD BÁSICO
-  # -------------------------------
+  # -------------------------------  
   basic-quality:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
