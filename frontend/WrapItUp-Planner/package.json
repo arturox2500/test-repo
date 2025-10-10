@@ -2,10 +2,12 @@
   "name": "wrap-it-up-planner",
   "version": "0.0.0",
   "scripts": {
-  "test:unit": "ng test --include='**/*.component.spec.ts' --exclude='**/*.service.spec.ts'",
-  "test:integration": "ng test --include='**/*.service.spec.ts'",
-  "test:all": "ng test"
-},
+    "build": "ng build --configuration=production",            
+    "start": "ng serve",
+    "test:unit": "ng test --include='**/*.component.spec.ts' --exclude='**/*.service.spec.ts'",
+    "test:integration": "ng test --include='**/*.service.spec.ts'",
+    "test:all": "ng test"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
