@@ -14,7 +14,7 @@ jobs:
   # CONTROL DE CALIDAD BÁSICO
   # -------------------------------  
   basic-quality:
-    if: github.event_name == 'push' && (startsWith(github.ref, 'refs/heads/feature/') || startsWith(github.ref, 'refs/heads/fix/'))
+    if: github.event_name == 'push' && github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -57,7 +57,7 @@ jobs:
   # CONTROL DE CALIDAD COMPLETO
   # -------------------------------
   full-quality:
-    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
 
     services:
