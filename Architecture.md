@@ -7,7 +7,7 @@ The application is structured following a **deployment architecture** where the 
 - **Angular Frontend:** Runs via the Angular development server and communicates with the backend through **HTTP/REST** requests.  
 - **Spring Boot Backend:** Exposes the REST API, handles business logic, and manages database access.  
 
-All components communicate using standard **HTTP/HTTPS protocols**, and the SQL database is connected to the backend via MySQL Connector. This architecture ensures **modularity and scalability** between frontend, backend, and database layers.
+All components communicate using standard **HTTP/HTTPS protocols**, and the SQL database is connected to the backend via MySQL Connector. This architecture ensures modularity and scalability between frontend, backend, and database layers.
 
 ## REST API
 
