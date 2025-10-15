@@ -1,18 +1,35 @@
 # Development Process
 
 ## 1. Methodology
-- The project follows an **iterative and incremental approach**, aligned with Agile principles and incorporating some Extreme Programming (XP) and Kanban practices.  
-- Minimum viable functionality is developed, tested, and improved in short cycles.  
-- **Scrum is not applied**.
+- The project follows an **iterative and incremental approach**, aligned with Agile principles and incorporating selected practices from **Extreme Programming (XP)** and **Kanban**.  
+- Development focuses on delivering **minimum viable functionality** in short cycles, allowing for continuous feedback, improvement, and incremental delivery of features.  
+- Kanban boards are used to visualize work in progress, and guarantees smooth task transitions from backlog to completion.
 
 ## 2. Task Management
-- Tasks are managed using **GitHub Issues** and **GitHub Projects**, with a visual board to track progress and prioritize work effectively.
+- Tasks are tracked using **GitHub Issues** and **GitHub Projects**, providing a clear overview of priorities and progress.  
+- The visual board supports iterative planning and quick adjustments in response to changing requirements.
 
 ## 3. Version Control
-- **Git** is used for source code management, employing a branching strategy to organize development.  
-- Metrics such as the number of commits, branches, and merges are tracked to monitor repository usage and collaboration.
+- Git manages all source code, with a feature-branch workflow:
+  - main branch contains stable, production-ready code.
+  - Feature branches are created for each new functionality or bug fix.
+  - Pull Requests are reviewed and pass automated quality gates before merging.  
+- **Metrics tracked**:
+  - **Commits:** 35 commits in total.
+  - **Branches:** 2 branches (main and one fix branch).
+  - **Pull Requests:** At least one PR created and merged.
+- **Repository activity visualizations**:
+  - **Commits over time:**  
+    ![Commits](path/to/your/commits_image.png)
+  - **Code frequency (lines added/removed):**  
+    ![Code Frequency](path/to/your/code_frequency_image.png)
 
 ## 4. Continuous Integration (CI/CD)
-- **GitHub Actions** automates the build and test processes on every push or pull request.  
-- Workflows handle tasks such as automated testing, code validation, and deployment, ensuring high-quality, reliable software delivery.  
-- **Note:** So far, only **Continuous Integration (CI)** has been implemented. **Docker-based deployment** and further DevOps workflows will be added in later phases.
+- **GitHub Actions** automates testing, building, and code validation for every push to feature branches and pull request to the main branch.
+- The CI workflows are structured in two levels:
+  1. **Basic CI**: triggered on pushes to feature/fix branches, runs backend and frontend unit tests, and builds the projects.
+  2. **Full CI**: triggered on pull requests to main, runs:
+     - Backend unit, integration, and system tests
+     - Frontend unit and E2E tests
+     - Static code analysis with SonarCloud
+
