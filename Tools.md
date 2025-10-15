@@ -14,3 +14,5 @@
 
 5. **SonarQube / SonarCloud** – Static code analysis tool used to ensure code quality and detect errors, vulnerabilities, and bad practices.  
    URL: [https://www.sonarqube.org](https://www.sonarqube.org) | [https://sonarcloud.io](https://sonarcloud.io)
+6. Jacoco
+7. OpenApi
