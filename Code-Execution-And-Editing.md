@@ -51,8 +51,7 @@ ng serve
 ## Using development tools
 
 * **VSCode** is recommended as the development environment due to its versatility and support for Angular and Java/Spring.
-* **Postman** (or a similar tool) is used to interact with the server’s REST API.
-* Examples of API requests will be provided once the Postman collection is created.
+* **Postman** (or a similar tool) is used to interact with the server’s REST API. Postman collection is located at the docs folder
 
 ## Running tests
 
@@ -72,10 +71,14 @@ ng serve
 
 ```bash
 # Frontend
+cd frontend/WrapItUp-Planner
 npm install
 npm run test:all -- --no-watch --browsers=ChromeHeadless
+```   
 
+```bash
 # Backend
+cd backend/wrapitup_planner
 mvn test -Dgroups="unit"
 mvn test -Dgroups="integration"
 mvn test -Dgroups="system"
