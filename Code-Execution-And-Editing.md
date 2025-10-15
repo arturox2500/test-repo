@@ -21,7 +21,7 @@ cd 2025-WrapItUp-Planner
   * **Password:** password
   * **Database:** wrapitup
   * **Connection URL:** jdbc:mysql://localhost:3306/wrapitup
-* MySQL can be started using a **Docker container** or a pre-configured local server.
+* MySQL can be started using a Docker container or a pre-configured local server.
 
 ### Running the backend (Spring Boot)
 
