@@ -1,8 +1,8 @@
 # Development Process
 
 ## 1. Methodology
-- The project follows an **iterative and incremental approach**, aligned with Agile principles and incorporating selected practices from **Extreme Programming (XP)** and **Kanban**.  
-- Development focuses on delivering **minimum viable functionality** in short cycles, allowing for continuous feedback, improvement, and incremental delivery of features.  
+- The project follows an **iterative and incremental approach**, aligned with Agile principles and incorporating selected practices from Extreme Programming (XP) and Kanban.  
+- Development focuses on delivering minimum viable functionality in short cycles, allowing for continuous feedback, improvement, and incremental delivery of features.  
 - Kanban boards are used to visualize work in progress, and guarantees smooth task transitions from backlog to completion.
 
 ## 2. Task Management
