@@ -13,7 +13,7 @@ URL: [Github](https://github.com)
 URL: [GitHub Projects](https://github.com/features/project-management)
 
 5. **SonarQube Cloud** – Static code analysis tool used to ensure code quality and detect errors, vulnerabilities, and bad practices. In WrapItUp Planner Sonar was integrated into the Github Actions workflows to ensure further quality gates while helping review and improve security, reliability and maintainabilty during the course of the project's development.   
-URL: [SonarQube](https://www.sonarqube.org) | [SonarCloud](https://sonarcloud.io)
+URL: [SonarQube](https://www.sonarqube.org), [SonarCloud](https://sonarcloud.io)
 
 6. **JaCoCo** – A Java code coverage tool that measures how much of the backend code is exercised by unit and integration tests. It provides **coverage reports** that help identify untested areas to improve testing completeness.   
 URL: [JaCoCo](https://www.jacoco.org)
